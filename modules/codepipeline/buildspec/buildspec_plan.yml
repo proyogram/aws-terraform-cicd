@@ -1,0 +1,17 @@
+version: 0.2
+phases:
+  pre_build:
+    on-failure: ABORT
+    commands:
+      - "cd ${CODEBUILD_SRC_DIR}"
+      - "terraform init"
+  build:
+    commands:
+      - "cd ${CODEBUILD_SRC_DIR}"
+      - "terraform plan"
+
+artifacts:
+  base-directory: ${CODEBUILD_SRC_DIR}
+  files:
+    - "**/*"
+    
