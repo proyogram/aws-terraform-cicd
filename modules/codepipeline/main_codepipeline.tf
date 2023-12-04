@@ -127,6 +127,7 @@ resource "aws_codebuild_project" "cicd_terraform_apply" {
     type      = "CODEPIPELINE"
     buildspec = "arn:aws:s3:::${aws_s3_bucket.codepipeline_bucket.id}/buildspec/buildspec_apply.yml"
   }
+
   environment {
     compute_type                = "BUILD_GENERAL1_SMALL"
     image                       = local.cicd_terraform_codebuild_repository_uri
