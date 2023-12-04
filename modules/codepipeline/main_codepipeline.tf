@@ -1,10 +1,5 @@
 locals {
   cicd_terraform_codebuild_repository_uri = "public.ecr.aws/hashicorp/terraform:1.4.0"
-
-  cicd_terraform_pipelines = {
-    region = "ap-northeast-1"
-    env    = "dev"
-  }
 }
 
 resource "aws_codepipeline" "codepipeline" {
